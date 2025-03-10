@@ -130,113 +130,179 @@ $result = $conn->query($sql);
     }
 
     .mainContent {
-        margin-left: 280px;
-        padding: 30px;
-        width: calc(100% - 280px);
-        min-height: 100vh;
-        transition: margin-left 0.3s ease;
-    }
+    margin-left: 280px;
+    padding: 30px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
 
-    @media (max-width: 768px) {
-        .mainContent {
-            width: 100%;
-            margin-left: 0;
-            padding: 20px;
-        }
+@media (max-width: 768px) {
+    .mainContent {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        
     }
+}
 
-    /* Category Section */
+/* Container for Buttons */
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+/* Primary Button */
+.button1 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #27ae60; /* Green */
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Ensuring icon spacing remains consistent */
+.button1 i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.button1:hover {
+    background-color: #2ecc71; /* Lighter Green */
+    transform: translateY(-2px);
+}
+
+/* Centering and Adjusting Button Position on Mobile View */
+@media (max-width: 768px) {
+    .button1 {
+        display: flex;
+        width: 100%;
+        max-width: 280px; /* Limits button width */
+        margin: 0 auto; /* Centers the button */
+        transform: translateX(30px); /* Moves it slightly to the left */
+    }
+}
+
+/* Category Button */
+.categoryButton {
+    width: 100%;
+    background-color: #2980b9;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2rem;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+}
+
+.categoryButton:hover {
+    background-color: #3498db;
+    transform: scale(1.05);
+}
+
+/* Category Section */
+.categoryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+/* Mobile View: Adjusts alignment & shifts slightly to the right */
+@media (max-width: 414px) {
     .categoryContainer {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-    }
-
-    @media (max-width: 414px) {
-        .categoryContainer {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .categoryCard {
-        background-color: #ffffff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .categoryCard:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        grid-template-columns: 1fr;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95%; /* Makes sure content doesn’t stretch too much */
     }
 
     .categoryButton {
-        width: 100%;
-        background-color: #2980b9;
-        color: #ffffff;
-        padding: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        text-align: center;
-        font-size: 1.2rem;
-        border: none;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        max-width: 80%; /* Keeps button size proportional */
+        margin: 0 auto; /* Centers the button */
         display: block;
+        transform: translateX(5px); /* Slight right shift */
     }
 
-    .categoryButton:hover {
-        background-color: #3498db;
-        transform: scale(1.05);
-    }
-
-    .categoryDropdown {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
-        padding: 10px;
-        display: none;
-    }
-
-    .categoryDropdown a {
-        padding: 8px 12px;
-        color: #34495e;
-        text-decoration: none;
+    .categoryCard {
         display: block;
-        border-radius: 6px;
-        margin: 5px 0;
+        transform: translateX(30px); /* Slight right shift */
     }
+}
 
-    .categoryDropdown a:hover {
-        background-color: #f1f1f1;
-    }
+.categoryCard {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .categoryCard.active .categoryDropdown {
-        display: block;
-    }
-    .logout-button {
-            background-color: #e74c3c;
-            color: #ffffff; 
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: background-color 0.3s;
-            margin-top: 10px; 
-        }
+.categoryCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-        .logout-button i {
-            margin-right: 8px; 
-            font-size: 1.2rem; 
-        }
+.categoryDropdown {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
+}
 
-        .logout-button:hover {
-            background-color: #c0392b; 
-        }
+.categoryDropdown a {
+    padding: 8px 12px;
+    color: #34495e;
+    text-decoration: none;
+    display: block;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+
+.categoryDropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.categoryCard.active .categoryDropdown {
+    display: block;
+}
+
+/* Logout Button */
+.logout-button {
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.logout-button i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}
+
 </style>
 
 <body>
@@ -268,7 +334,9 @@ $result = $conn->query($sql);
 
 <!-- Main Content -->
 <div class="mainContent">
-    <div class="categoryContainer">
+<div class="buttonContainer">
+    <a href="pos.php" class="button1"><i class="fa fa-plus"></i> Add Supply</a>
+
         <!-- Steel Category -->
         <div class="categoryCard" id="steelCard">
                 <button class="categoryButton" onclick="toggleDropdown('steelCard')">Steel</button>
